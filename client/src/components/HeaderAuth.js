@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
 
-const Header = (props) => {
+const Header = () => {
 
     return (
         <div>
@@ -11,8 +11,10 @@ const Header = (props) => {
                     <Typography variant="h6">
                         Town
                     </Typography>
-                    <Button color="inherit">Sign Up</Button>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit">Profile</Button>
+                    <Button color="inherit">Towns</Button>
+                    <Button color="inherit">News</Button>
+                    <Button color="inherit">Logout</Button>
                 </Toolbar>
             </AppBar>
         </div>
