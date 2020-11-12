@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const bcrypt = require("bcrypt");
+var cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -15,8 +16,11 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+
+app.use(cors({ origin : [ "http://localhost:3001/"]}));
+
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/townapp",
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1/townapp",
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log('connected to db')
 );
