@@ -4,20 +4,20 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 import API from "../utils/API";
 
 
-const UserProfile = () => {
+const UserProfile = (props) => {
     
     const [profileState, setProfileState] = useState({
         newProfile: false
     });
 
     const [showProfile, setShowProfile] = useState({
-        username: "Mark",
+        username: props.name,
         profileInfo: null
 
     })
 
     const [newProfile, setNewProfile] = useState({
-        username: "Mark",
+        username: props.name,
         nickname: null,
         age: null,
         location: null,
