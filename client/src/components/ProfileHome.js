@@ -5,12 +5,15 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 import API from "../utils/API";
 
 import CreatePost from "../components/CreatePost";
+import PreviousPost from "../components/PreviousPost";
 
 const ProfileHome = (props) => {
 
     const [createPost, setCreatePost] = useState({
         selected: false
     })
+
+    
 
     if(!createPost.selected)
     return (
@@ -24,9 +27,12 @@ const ProfileHome = (props) => {
                 </Grid>
             </Paper>
 
+            <PreviousPost username={props.username} nickname={props.nickname}/>
+
             <Button onClick={() => setCreatePost({ selected: true })}>
                 Create Post
             </Button>
+
         </div>
     )
     return (
@@ -40,11 +46,13 @@ const ProfileHome = (props) => {
                 </Grid>
             </Paper>
 
+            <PreviousPost nickname={props.nickname}/>
+
             <Button onClick={() => setCreatePost({ selected: true })}>
                 Create Post
             </Button>
 
-            <CreatePost />
+            <CreatePost username={props.username} nickname={props.nickname} />
         </div>
     )
 }

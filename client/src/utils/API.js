@@ -19,5 +19,11 @@ export default {
   },
   findProfile: function(username) {
     return axios.get(`/api/profile/${username}`)
+  },
+  createPost: function(postText) {
+    return axios.post("/api/post/text", postText)
+  },
+  findPosts: function(username, nickname) {
+    return axios.get(`/api/post/${username}/${nickname}`)
   }
 };
