@@ -4,7 +4,7 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import UserProfile from "./UserProfile";
 
-const UserHome = () => {
+const UserHome = (props) => {
     
     const [userNav, setUserNav] = useState({
         page: "Profile"
@@ -25,7 +25,7 @@ const UserHome = () => {
             )
         default: 
             return (
-                <UserProfile />
+                <UserProfile name={props.name} />
             )
     }
 }

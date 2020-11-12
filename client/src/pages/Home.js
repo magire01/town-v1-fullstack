@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import Header from "../components/Header";
@@ -6,11 +6,17 @@ import HeaderAuth from "../components/HeaderAuth";
 import UserHome from "./UserHome";
 import SignUp from "../components/SignUp";
 
+import API from "../utils/API";
+
 
 const Home = () => {
     
     const [pageNav, setPageNav] = useState({
         page: "Login"
+    })
+
+    const [username, setUsername] = useState({
+        username: null
     })
       
     const submitLogin = (evt) => {
@@ -19,6 +25,14 @@ const Home = () => {
         setPageNav({ page: "Authed" })
 
     }
+
+    const handleUsername = (evt) => {
+        setUsername({
+            username: evt.target.value
+        })
+    }
+
+    
 
     switch (pageNav.page) {
         case "SignUp":
@@ -33,7 +47,7 @@ const Home = () => {
             return (
                 <div>
                     <HeaderAuth />
-                    <UserHome />
+                    <UserHome name={username.username}/>
                 </div>
             )
         default:
@@ -52,7 +66,7 @@ const Home = () => {
                                 <Grid item md="12">
                                     <form>
                                         <Typography variant="subtitle1">Email</Typography>
-                                        <input />
+                                        <input onChange={handleUsername}/>
                                         <Typography variant="subtitle1">Password</Typography>
                                         <input />
                                         <Grid item md="12">

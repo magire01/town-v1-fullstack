@@ -16,5 +16,8 @@ export default {
   },
   showProfiles: function() {
     return axios.get("/api/profile/")
+  },
+  findProfile: function(username) {
+    return axios.get(`/api/profile/${username}`)
   }
 };

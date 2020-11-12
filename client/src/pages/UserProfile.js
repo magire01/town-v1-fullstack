@@ -3,21 +3,23 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import API from "../utils/API";
 
+import ProfileSelect from "../components/ProfileSelect";
 
-const UserProfile = () => {
+
+const UserProfile = (props) => {
     
     const [profileState, setProfileState] = useState({
         newProfile: false
     });
 
     const [showProfile, setShowProfile] = useState({
-        username: "Mark",
+        username: props.name,
         profileInfo: null
 
     })
 
     const [newProfile, setNewProfile] = useState({
-        username: "Mark",
+        username: props.name,
         nickname: null,
         age: null,
         location: null,
@@ -30,13 +32,19 @@ const UserProfile = () => {
             .then(result => console.log("ResTest: ", result.data))
             .catch(err => console.log("Get error 2"))
     }
-// setShowProfile({
-                // ...showProfile,
-                // profileInfo: res
-                // });
+
+    // useEffect(() => {
+    //     API.showProfiles()
+    //         .then(result => console.log(result.data))
+    //         .catch(err => console.log(err))
+    // }, [])
+
     useEffect(() => {
-        API.showProfiles()
-            .then(result => console.log(result.data))
+        API.findProfile(showProfile.username)
+            .then(result => setShowProfile({
+                ...showProfile,
+                profileInfo: result.data
+            }))
             .catch(err => console.log(err))
     }, [])
 
@@ -102,6 +110,8 @@ const UserProfile = () => {
                     </Grid>
                 </Grid>
             </Paper>
+
+            <ProfileSelect name={showProfile.username}/>
         </Container>
     )
 
@@ -134,6 +144,8 @@ const UserProfile = () => {
                     </Grid>
                 </Grid>
             </Paper>
+            
+            <ProfileSelect name={showProfile.username}/>
         </Container>
     )
 }
