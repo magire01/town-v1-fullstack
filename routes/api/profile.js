@@ -19,4 +19,10 @@ router.get("/", (req, res) => {
     .catch(err => console.log(err))
 })
 
+router.get("/:name", (req, res) => {
+    return db.Profile.find({ username: req.params.name })
+    .then(result => res.json(result))
+    .catch(err => console.log(err))
+})
+
 module.exports = router;
