@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
   username: { type: String, required: true },
-  profile1: { type: String, required: true },
+  nickname: { type: String, required: true },
   postText: { type: String, required: true }
 });
 

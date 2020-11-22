@@ -44,7 +44,7 @@ const ProfileHome = (props) => {
                 Create Post
             </Button>
 
-            <CreatePost />
+            <CreatePost username={props.username} nickname={props.nickname} />
         </div>
     )
 }

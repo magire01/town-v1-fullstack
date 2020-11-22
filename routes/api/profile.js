@@ -8,7 +8,7 @@ router.post("/createProfile", (req, res) => {
         location: req.body.location,
         something: req.body.something })
         .then(console.log("Successfully Created Profile"))
-        .catch(console.log("Error received CREATE PROFILE"))
+        .catch(err => console.log(err))
     
 });
 

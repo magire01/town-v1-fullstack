@@ -19,5 +19,8 @@ export default {
   },
   findProfile: function(username) {
     return axios.get(`/api/profile/${username}`)
+  },
+  createPost: function(userData) {
+    return axios.post("/api/post/createPost", userData)
   }
 };
