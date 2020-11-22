@@ -5,6 +5,7 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 import API from "../utils/API";
 
 import CreatePost from "../components/CreatePost";
+import PreviousPost from "../components/PreviousPost";
 
 const ProfileHome = (props) => {
 
@@ -27,6 +28,8 @@ const ProfileHome = (props) => {
             <Button onClick={() => setCreatePost({ selected: true })}>
                 Create Post
             </Button>
+
+            <PreviousPost username={props.username} nickname={props.nickname} />
         </div>
     )
     return (
@@ -44,7 +47,9 @@ const ProfileHome = (props) => {
                 Create Post
             </Button>
 
-            <CreatePost />
+            <CreatePost username={props.username} nickname={props.nickname} />
+
+            <PreviousPost username={props.username} nickname={props.nickname} />
         </div>
     )
 }
