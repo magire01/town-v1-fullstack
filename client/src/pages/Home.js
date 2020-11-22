@@ -46,6 +46,7 @@ const Home = () => {
         case "SignUp":
             return (
                 <div>
+                    <Button onClick={()=> setPageNav({ page: "Login" })} color="secondary" style={homeStyle.createAccount}>Click Here to Login!</Button>
                     <SignUp />
                 </div>
         
