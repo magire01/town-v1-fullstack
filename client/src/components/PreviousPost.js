@@ -39,12 +39,12 @@ const PreviousPost = (props) => {
         <div>
             <Container>
                 <Grid container style={postStyle.entire}>
-                    <Grid item md="12">
+                    <Grid item md="12" xs="12">
                         Previous Posts
                     </Grid>
                     
                 {showPosts.postArr.map(data => (
-                    <Grid item md="12" style={postStyle.individual}>
+                    <Grid item md="12" xs="12" style={postStyle.individual}>
                         <p>
                             {data.postText}
                         </p>

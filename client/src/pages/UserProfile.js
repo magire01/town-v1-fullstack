@@ -84,8 +84,14 @@ const UserProfile = (props) => {
     }
 
     const buttonStyle = {
-        marginBottom: 30
+        marginBottom: 30,
+        display: "block",
+        marginRight: "auto",
+        marginLeft: "auto",
+        alignContent: "center",
+        width: 600
     }
+
 
 
     if(!profileState.newProfile)
@@ -109,7 +115,7 @@ const UserProfile = (props) => {
             <Paper style={buttonStyle}>
                 <Grid container>
                     <Grid item md="12">
-                        <Button onClick={()=> setProfileState({ newProfile: false })}>CREATE PROFILE</Button>
+                        <Button onClick={()=> setProfileState({ newProfile: false })}>Exit Create Profile</Button>
                     </Grid>
 
                     <Grid item md="12">

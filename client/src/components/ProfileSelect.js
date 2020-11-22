@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
+import { Container, Grid, Paper, Typography, Button, Card } from "@material-ui/core";
 
 import API from "../utils/API";
 
@@ -27,33 +27,74 @@ const ProfileSelect = (props) => {
             .catch(err => console.log(err))
     }, [])
 
+    const buttonStyle = {
+        marginBottom: 30,
+        display: "block",
+        marginRight: "auto",
+        marginLeft: "auto",
+        alignContent: "center",
+        width: 600
+    }
+
+    const profileStyle = {
+        mainDisplay: {
+            marginBottom: 30,
+            display: "block",
+            marginRight: "auto",
+            marginLeft: "auto",
+            alignContent: "center",
+            width: 600
+        },
+        button: {
+            display: "block",
+            marginRight: "auto",
+            marginLeft: "auto",
+            marginBottom:10,
+            width: 200,
+            height: "auto",
+            alignText: "center"
+        }
+    }
+
     if(!selectProfile.selected)
     return (
         <div>
             <Grid container>
-                <Grid item md="12">
-                    <p>{showProfile.username} Profiles</p>
+                <Grid item md="12" style={profileStyle.mainDisplay}>
+                    <Paper style={profileStyle.mainDisplay}>
+                        <p>Welcome, {showProfile.username}. Please create a profile or select an existing one. </p>
+                    </Paper>
+
+                    
                 </Grid>
-                <Paper>
+                <div style={profileStyle.mainDisplay}>
                 <Grid item md="12">
+                    <p>Profiles for user, {showProfile.username}</p>
+
                     {showProfile.profileInfo.map((profile) => (
                         <Grid md="12">
                             
-                            <Button onClick={() => setSelectProfile({ ...selectProfile, nickname: profile.nickname, selected: true })}>
+                            <Card onClick={() => setSelectProfile({ ...selectProfile, nickname: profile.nickname, selected: true })} style={profileStyle.button}>
                                 <Grid item md="12">
-                                    NickName: {profile.nickname}
+                                    <Button>
+                                        NickName: {profile.nickname}
+                                    </Button>
                                 </Grid>
                                 <Grid item md="12">
-                                    Age: {profile.age}
+                                    <p style={profileStyle.button}>
+                                        Age: {profile.age}
+                                    </p>
                                 </Grid>
                                 <Grid item md="12">
-                                    Location: {profile.location}
+                                    <p style={profileStyle.button}>
+                                        Location: {profile.location}
+                                    </p>
                                 </Grid>
-                            </Button>
+                            </Card>
                         </Grid>
                     ))}
                 </Grid>
-                </Paper>
+                </div>
             </Grid>
             
         </div>
