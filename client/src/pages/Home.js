@@ -32,6 +32,14 @@ const Home = () => {
         })
     }
 
+    const homeStyle = {
+        createAccount: {
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto"
+        }
+    }
+
     
 
     switch (pageNav.page) {
@@ -51,7 +59,7 @@ const Home = () => {
         default:
             return (
                 <div>
-                    <Button onClick={()=> setPageNav({ page: "SignUp" })}>Click Here to create an account!</Button>
+                    <Button onClick={()=> setPageNav({ page: "SignUp" })} color="secondary" style={homeStyle.createAccount}>Click Here to create an account!</Button>
 
                     <Container>
                         <Paper elevation={1}>
