@@ -22,5 +22,8 @@ export default {
   },
   createPost: function(userData) {
     return axios.post("/api/post/createPost", userData)
+  },
+  showPrevPost: function(username, nickname) {
+    return axios.get(`/api/post/${username}/${nickname}/`)
   }
 };
