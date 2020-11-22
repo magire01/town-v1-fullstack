@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import UserProfile from "./UserProfile";
+import Home from "./Home";
 
 const UserHome = (props) => {
     
     const [userNav, setUserNav] = useState({
-        page: "Profile"
+        page: props.page
     })
+
 
     switch(userNav.page) {
         case "Towns":
@@ -22,6 +24,10 @@ const UserHome = (props) => {
                 <div>
                     News Page
                 </div>
+            )
+        case "Logout":
+            return (
+                <Home />
             )
         default: 
             return (

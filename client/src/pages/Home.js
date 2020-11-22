@@ -46,8 +46,7 @@ const Home = () => {
         case "Authed":
             return (
                 <div>
-                    <HeaderAuth />
-                    <UserHome name={username.username}/>
+                    <HeaderAuth name={username.username}/>
                 </div>
             )
         default:

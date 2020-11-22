@@ -26,19 +26,6 @@ const UserProfile = (props) => {
         something: null
     })
 
-    const showAllProfiles = (evt) => {
-        evt.preventDefault();
-        API.showProfiles()
-            .then(result => console.log("ResTest: ", result.data))
-            .catch(err => console.log("Get error 2"))
-    }
-
-    // useEffect(() => {
-    //     API.showProfiles()
-    //         .then(result => console.log(result.data))
-    //         .catch(err => console.log(err))
-    // }, [])
-
     useEffect(() => {
         API.findProfile(showProfile.username)
             .then(result => setShowProfile({
@@ -102,10 +89,6 @@ const UserProfile = (props) => {
             <Paper>
                 <Grid container>
                     <Grid item md="12">
-                        <Typography>
-                            <Button onClick={(evt) => showAllProfiles(evt)}>Show Profiles</Button>
-                        </Typography>
-
                         <Button onClick={()=> setProfileState({ newProfile: true })}>CREATE PROFILE</Button>
                     </Grid>
                 </Grid>
@@ -120,10 +103,6 @@ const UserProfile = (props) => {
             <Paper>
                 <Grid container>
                     <Grid item md="12">
-                        <Typography>
-                            <Button onClick={(evt) => showAllProfiles(evt)}>Show Profiles</Button>
-                        </Typography>
-
                         <Button onClick={()=> setProfileState({ newProfile: false })}>CREATE PROFILE</Button>
                     </Grid>
 
