@@ -6,7 +6,7 @@ import Home from "../pages/Home";
 import UserHome from "../pages/UserHome";
 import UserProfile from "../pages/UserProfile";
 
-const Header = (props) => {
+const HeaderAuth = (props) => {
 
     const [pageNav, setPageNav] = useState({
         page: "Profile"
@@ -18,16 +18,16 @@ const Header = (props) => {
             return (
                 <div>
                     <AppBar position="static">
-                    <Toolbar>
-                        <Typography variant="h6">
-                            Town
-                        </Typography>
-                        <Button onClick={() => setPageNav({ page: "Profile" })} color="inherit">Profile</Button>
-                        <Button onClick={() => setPageNav({ page: "Towns" })} color="inherit">Towns</Button>
-                        <Button onClick={() => setPageNav({ page: "News" })} color="inherit">News</Button>
-                        <Button onClick={() => setPageNav({ page: "Logout" })} color="inherit">Logout</Button>
-                    </Toolbar>
-                </AppBar>
+                        <Toolbar>
+                            <Typography variant="h6">
+                                Town
+                            </Typography>
+                            <Button onClick={() => setPageNav({ page: "Profile" })} color="inherit">Profile</Button>
+                            <Button onClick={() => setPageNav({ page: "Towns" })} color="inherit">Towns</Button>
+                            <Button onClick={() => setPageNav({ page: "News" })} color="inherit">News</Button>
+                            <Button onClick={() => setPageNav({ page: "Logout" })} color="inherit">Logout</Button>
+                        </Toolbar>
+                    </AppBar>
                     Towns
                 </div>
             )
@@ -35,16 +35,16 @@ const Header = (props) => {
             return (
                 <div>
                     <AppBar position="static">
-                    <Toolbar>
-                        <Typography variant="h6">
-                            Town
-                        </Typography>
-                        <Button onClick={() => setPageNav({ page: "Profile" })} color="inherit">Profile</Button>
-                        <Button onClick={() => setPageNav({ page: "Towns" })} color="inherit">Towns</Button>
-                        <Button onClick={() => setPageNav({ page: "News" })} color="inherit">News</Button>
-                        <Button onClick={() => setPageNav({ page: "Logout" })} color="inherit">Logout</Button>
-                    </Toolbar>
-                </AppBar>
+                        <Toolbar>
+                            <Typography variant="h6">
+                                Town
+                            </Typography>
+                            <Button onClick={() => setPageNav({ page: "Profile" })} color="inherit">Profile</Button>
+                            <Button onClick={() => setPageNav({ page: "Towns" })} color="inherit">Towns</Button>
+                            <Button onClick={() => setPageNav({ page: "News" })} color="inherit">News</Button>
+                            <Button onClick={() => setPageNav({ page: "Logout" })} color="inherit">Logout</Button>
+                        </Toolbar>
+                    </AppBar>
                     News    
                 </div>
             )
@@ -73,4 +73,4 @@ const Header = (props) => {
     }
 }
 
-export default Header;
+export default HeaderAuth;

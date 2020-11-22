@@ -9,47 +9,33 @@ import PreviousPost from "../components/PreviousPost";
 
 const ProfileHome = (props) => {
 
-    const [createPost, setCreatePost] = useState({
-        selected: false
-    })
-
-    if(!createPost.selected)
     return (
         <div>
-            <Paper>
-                <Grid container>
-                    <Grid item md="12">
+           
+            <Grid container> 
+            
+                <Grid item md="6" xs="12">
+                    <Paper>
+                        <h3>User:</h3>
                         <p>{props.username}</p>
+                    
+                        <h3>Profile Name</h3>
                         <p>{props.nickname}</p>
-                    </Grid>
+                
+            
+                        <Typography>
+                            Create Post
+                        </Typography>
+                        
+                        <CreatePost username={props.username} nickname={props.nickname} />
+                    </Paper>
                 </Grid>
-            </Paper>
-
-            <Button onClick={() => setCreatePost({ selected: true })}>
-                Create Post
-            </Button>
-
-            <PreviousPost username={props.username} nickname={props.nickname} />
-        </div>
-    )
-    return (
-        <div>
-            <Paper>
-                <Grid container>
-                    <Grid item md="12">
-                        <p>{props.username}</p>
-                        <p>{props.nickname}</p>
-                    </Grid>
+           
+                <Grid item md="6" xs="12">
+                    <PreviousPost username={props.username} nickname={props.nickname} />
                 </Grid>
-            </Paper>
-
-            <Button onClick={() => setCreatePost({ selected: true })}>
-                Create Post
-            </Button>
-
-            <CreatePost username={props.username} nickname={props.nickname} />
-
-            <PreviousPost username={props.username} nickname={props.nickname} />
+            </Grid>
+            
         </div>
     )
 }

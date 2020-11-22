@@ -34,19 +34,26 @@ const ProfileSelect = (props) => {
                 <Grid item md="12">
                     <p>{showProfile.username} Profiles</p>
                 </Grid>
-                {showProfile.profileInfo.map((profile) => (
-                    <Button onClick={() => setSelectProfile({ ...selectProfile, nickname: profile.nickname, selected: true })}>
-                        <Grid item md="12">
-                            NickName: {profile.nickname}
+                <Paper>
+                <Grid item md="12">
+                    {showProfile.profileInfo.map((profile) => (
+                        <Grid md="12">
+                            
+                            <Button onClick={() => setSelectProfile({ ...selectProfile, nickname: profile.nickname, selected: true })}>
+                                <Grid item md="12">
+                                    NickName: {profile.nickname}
+                                </Grid>
+                                <Grid item md="12">
+                                    Age: {profile.age}
+                                </Grid>
+                                <Grid item md="12">
+                                    Location: {profile.location}
+                                </Grid>
+                            </Button>
                         </Grid>
-                        <Grid item md="12">
-                            Age: {profile.age}
-                        </Grid>
-                        <Grid item md="12">
-                            Location: {profile.location}
-                        </Grid>
-                    </Button>
-                ))}
+                    ))}
+                </Grid>
+                </Paper>
             </Grid>
             
         </div>

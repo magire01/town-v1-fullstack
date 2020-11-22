@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
+import { AppBar, Toolbar, Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import Header from "../components/Header";
 import HeaderAuth from "../components/HeaderAuth";
@@ -38,7 +38,6 @@ const Home = () => {
         case "SignUp":
             return (
                 <div>
-                    <Header />
                     <SignUp />
                 </div>
         
@@ -52,7 +51,6 @@ const Home = () => {
         default:
             return (
                 <div>
-                    <Header />
                     <Button onClick={()=> setPageNav({ page: "SignUp" })}>Click Here to create an account!</Button>
 
                     <Container>
