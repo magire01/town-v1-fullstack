@@ -22,23 +22,36 @@ const PreviousPost = (props) => {
             .catch(err => console.log(err))
     }, [])
 
+
+    const postStyle = {
+        entire: {
+            marginTop: 20,
+            marginLeft: 20,
+            paddingLeft: 10,
+            paddingTop: 10
+        },
+        individual: {
+            marginLeft: 10
+        }
+    }
+
     return (
         <div>
-            <div>
-                Previous Posts
-            </div>
-            {showPosts.postArr.map(data => (
-                <Grid container>
-                    <Paper>
-                        <Grid item md="12">
-                            <p>
-                                {data.postText}
-                            </p>
-                            
-                        </Grid>
-                    </Paper>
+            <Container>
+                <Grid container style={postStyle.entire}>
+                    <Grid item md="12">
+                        Previous Posts
+                    </Grid>
+                    
+                {showPosts.postArr.map(data => (
+                    <Grid item md="12" style={postStyle.individual}>
+                        <p>
+                            {data.postText}
+                        </p>
+                    </Grid>
+                ))}
                 </Grid>
-            ))}
+            </Container>
         </div>
     )
 

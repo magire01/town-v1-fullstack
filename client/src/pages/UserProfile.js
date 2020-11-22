@@ -78,18 +78,24 @@ const UserProfile = (props) => {
     const submitProfile = (evt) => {
         evt.preventDefault();
         saveProfile();
+        setProfileState({
+            newProfile: false
+        })
     }
 
+    const buttonStyle = {
+        marginBottom: 30
+    }
 
 
     if(!profileState.newProfile)
 
     return (
         <Container>
-            <Paper>
+            <Paper style={buttonStyle}>
                 <Grid container>
                     <Grid item md="12">
-                        <Button onClick={()=> setProfileState({ newProfile: true })}>CREATE PROFILE</Button>
+                        <Button onClick={()=> setProfileState({ newProfile: true })}>CREATE NEW PROFILE</Button>
                     </Grid>
                 </Grid>
             </Paper>
@@ -100,7 +106,7 @@ const UserProfile = (props) => {
 
     return (
         <Container>
-            <Paper>
+            <Paper style={buttonStyle}>
                 <Grid container>
                     <Grid item md="12">
                         <Button onClick={()=> setProfileState({ newProfile: false })}>CREATE PROFILE</Button>

@@ -12,12 +12,15 @@ const HeaderAuth = (props) => {
         page: "Profile"
     })
 
+    const barStyle = {
+        backgroundColor: "#542f00"
+    }
     
     switch (pageNav.page) {
         case "Towns":
             return (
                 <div>
-                    <AppBar position="static">
+                    <AppBar position="static" style={barStyle}>
                         <Toolbar>
                             <Typography variant="h6">
                                 Town
@@ -34,7 +37,7 @@ const HeaderAuth = (props) => {
         case "News":
             return (
                 <div>
-                    <AppBar position="static">
+                    <AppBar position="static" style={barStyle}>
                         <Toolbar>
                             <Typography variant="h6">
                                 Town
@@ -56,7 +59,7 @@ const HeaderAuth = (props) => {
 
             return (
             <div>
-                <AppBar position="static">
+                <AppBar position="static" style={barStyle}>
                     <Toolbar>
                         <Typography variant="h6">
                             Town

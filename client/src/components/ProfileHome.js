@@ -9,30 +9,36 @@ import PreviousPost from "../components/PreviousPost";
 
 const ProfileHome = (props) => {
 
+    const divStyle = {
+        profile: {
+            marginRight: 5
+        },
+        posts: {
+            marginLeft: 5
+        }
+    }
+
     return (
         <div>
            
             <Grid container> 
             
-                <Grid item md="6" xs="12">
+                <Grid item md="5" xs="12" style={divStyle.profile}>
                     <Paper>
                         <h3>User:</h3>
                         <p>{props.username}</p>
                     
                         <h3>Profile Name</h3>
                         <p>{props.nickname}</p>
-                
-            
-                        <Typography>
-                            Create Post
-                        </Typography>
                         
                         <CreatePost username={props.username} nickname={props.nickname} />
                     </Paper>
                 </Grid>
            
-                <Grid item md="6" xs="12">
-                    <PreviousPost username={props.username} nickname={props.nickname} />
+                <Grid item md="5" xs="12" style={divStyle.posts}>
+                    <Paper>
+                        <PreviousPost username={props.username} nickname={props.nickname} />
+                    </Paper>
                 </Grid>
             </Grid>
             
