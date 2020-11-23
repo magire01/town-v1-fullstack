@@ -14,7 +14,7 @@ const HeaderAuth = (props) => {
 
     const barStyle = {
         main: {
-            backgroundColor: "#542f00"
+            backgroundColor: "#9c2d17"
         },
         button: {
             display: "block",
