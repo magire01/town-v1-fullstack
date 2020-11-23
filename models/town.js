@@ -9,10 +9,7 @@ const townSchema = new Schema({
   description: { type: String, required: true },
   members: [{
     username: { type: String, required: true },
-    nickname: { type: String, required: true },
-    age: { type: Number, required: true },
-    location: { type: String, required: true },
-    something: { type: String, required: true }
+    nickname: { type: String, required: true }
   }],
   dateCreated: { type: String, required: true, default: moment().format('MM-DD-YYYY hh:mm a') }
 });

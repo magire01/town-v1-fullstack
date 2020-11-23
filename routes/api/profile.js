@@ -29,6 +29,14 @@ router.get("/:name", (req, res) => {
 router.put("/join/:user/:nick/:town", async (req, res) => {
     await db.Profile.findOneAndUpdate({ username: req.params.user, nickname: req.params.nick }, { town: req.params.town} )
     .then(result => {
+        res.json(result);
+    })
+    .catch(err => console.log(err))
+})
+
+router.put("/leave/:user/:nick", async (req, res) => {
+    await db.Profile.findOneAndUpdate({ username: req.params.user, nickname: req.params.nick}, { town: null })
+    .then( result => {
         console.log(result);
         res.json(result);
     })
