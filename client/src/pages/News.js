@@ -33,7 +33,8 @@ const News = () => {
             paddingRight: 20
         },
         date: {
-            textAlign: "center"
+            textAlign: "center",
+            fontSize: 10
         }
     }
 
