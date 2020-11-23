@@ -35,7 +35,8 @@ const ProfileHome = (props) => {
             <Grid container>
                 <Grid item md="6" xs="12">
                     <Paper style={profileHomeStyle.profile}>
-                        <SelectedProfile 
+                        <SelectedProfile
+                            username={props.username} 
                             nickname={props.nickname} 
                             age={props.age} 
                             location={props.location} 
