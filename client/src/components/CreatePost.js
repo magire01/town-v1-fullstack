@@ -28,7 +28,7 @@ const CreatePost = (props) => {
     const postStyle = {
         textArea: {
             backgroundColor: "#f8ffa8",
-            height: "90%",
+            height: 100,
             width: "90%"
         }
     }
@@ -36,10 +36,10 @@ const CreatePost = (props) => {
     return (
         <div style={{ height: "auto"}}>
             <Grid container>
-                <Grid item md="12">
+                <Grid item md="12" xs="12">
                     <p>Create Post</p>
                 </Grid>
-                <Grid item md="12">
+                <Grid item md="12" xs="12">
                     <form>
                         <Grid item md="12">
                             <textarea style={postStyle.textArea} onChange={handleInputChange}/>
