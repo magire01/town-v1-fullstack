@@ -4,8 +4,7 @@ import { Container, Grid, Paper, Typography, Button, Card } from "@material-ui/c
 
 import API from "../utils/API";
 
-import ProfileHome from "../components/ProfileHome";
-import CreateProfile from "../components/CreateProfile";
+import TownHome from "../components/TownHome";
 
 const TownSelect = (props) => {
 
@@ -73,7 +72,13 @@ const TownSelect = (props) => {
     )
     return (
         <div>
-            Town Selected
+            <TownHome 
+                name={selectTown.name}
+                createdByUser={selectTown.createdByUser}
+                createdByNick={selectTown.createdByNick}
+                description={selectTown.description}
+                members={selectTown.members}
+            />
         </div>
     )
 }
