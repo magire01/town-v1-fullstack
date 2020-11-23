@@ -7,6 +7,7 @@ import API from "../utils/API";
 import CreatePost from "../components/CreatePost";
 import PreviousPost from "../components/PreviousPost";
 import SelectedProfile from "../components/SelectedProfile";
+import CreateTown from "../components/CreateTown";
 
 const ProfileHome = (props) => {
 
@@ -49,6 +50,17 @@ const ProfileHome = (props) => {
                         <PreviousPost 
                             username={props.username} 
                             nickname={props.nickname} />
+                    </Paper>
+                </Grid>
+
+                <Grid item md="12" xs="12">
+                    <Paper>
+                        <CreateTown 
+                            username={props.username}
+                            nickname={props.nickname}
+                            age={props.age}
+                            location={props.location}
+                            something={props.something}/>
                     </Paper>
                 </Grid>
             </Grid>

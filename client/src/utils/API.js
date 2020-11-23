@@ -28,5 +28,8 @@ export default {
   },
   getNews: function() {
     return axios.get("/api/post/news")
+  },
+  createTown: function(townData) {
+    return axios.post("/api/town/createTown", townData)
   }
 };

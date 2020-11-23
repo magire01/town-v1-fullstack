@@ -4,7 +4,8 @@ const moment = require("moment");
 
 const townSchema = new Schema({
   name: { type: String, required: true },
-  createdBy: { type: String, required: true },
+  createdByUser: { type: String, required: true },
+  createdByNick: { type: String, required: true },
   description: { type: String, required: true },
   members: [{
     username: { type: String, required: true },

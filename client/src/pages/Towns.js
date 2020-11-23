@@ -11,7 +11,7 @@ const Towns = () => {
     // })
 
     // useEffect(() => {
-    //     API.getNews()
+    //     API.get()
     //     .then(result => setShowNews({ newsArr: result.data }))
     //     .catch(err => console.log(err))
     // }, [])
