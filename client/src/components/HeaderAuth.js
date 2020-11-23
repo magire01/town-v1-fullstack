@@ -5,6 +5,7 @@ import { AppBar, Grid, Toolbar, Typography, Button } from "@material-ui/core";
 import Home from "../pages/Home";
 import UserProfile from "../pages/UserProfile";
 import News from "../pages/News";
+import Towns from "../pages/Towns";
 
 const HeaderAuth = (props) => {
 
@@ -46,7 +47,7 @@ const HeaderAuth = (props) => {
                         </Grid>
                     </Toolbar>
                 </AppBar>
-                Towns
+                <Towns name={props.name}/>
             </div>
             )
         case "News":
