@@ -4,21 +4,18 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 import ProfileSelect from "../components/ProfileSelect";
 import CreateProfile from "../components/CreateProfile";
 import Greeting from "../components/Greeting";
+import CreatePost from "../components/CreatePost";
 
-const UserProfile = (props) => {
-
-    const [showProfile, setShowProfile] = useState({
-        username: props.name,
-        profileInfo: null
-
-    })
+const SelectedProfile = (props) => {
 
     return (
         <div>
-            <Greeting username={props.name}/>
-            <ProfileSelect name={props.name}/>
+            <h3>Profile Name: {props.nickname}</h3>
+            <h5>Age: {props.age}</h5>
+            <h5>Location: {props.location}</h5>
+            <h5>Something: {props.something}</h5>
         </div>
     )
 }
 
-export default UserProfile;
+export default SelectedProfile;

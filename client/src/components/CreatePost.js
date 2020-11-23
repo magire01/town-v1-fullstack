@@ -27,7 +27,7 @@ const CreatePost = (props) => {
 
     const postStyle = {
         textArea: {
-            backgroundColor: "lightblue",
+            backgroundColor: "#f8ffa8",
             height: 150,
             width: 400
         }

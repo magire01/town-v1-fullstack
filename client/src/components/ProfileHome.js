@@ -6,38 +6,49 @@ import API from "../utils/API";
 
 import CreatePost from "../components/CreatePost";
 import PreviousPost from "../components/PreviousPost";
+import SelectedProfile from "../components/SelectedProfile";
 
 const ProfileHome = (props) => {
 
-    const divStyle = {
+    const profileHomeStyle = {
         profile: {
-            marginRight: 5
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+            alignContent: "center",
+            width: "80%"
+            
         },
         posts: {
-            marginLeft: 5
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginTop: 20,
+            width: "80%"
         }
     }
 
     return (
         <div>
-           
-            <Grid container> 
-            
-                <Grid item md="5" xs="12" style={divStyle.profile}>
-                    <Paper>
-                        <h3>User:</h3>
-                        <p>{props.username}</p>
-                    
-                        <h3>Profile Name</h3>
-                        <p>{props.nickname}</p>
-                        
-                        <CreatePost username={props.username} nickname={props.nickname} />
+            <Grid container>
+                <Grid item md="6" xs="12">
+                    <Paper style={profileHomeStyle.profile}>
+                        <SelectedProfile 
+                            nickname={props.nickname} 
+                            age={props.age} 
+                            location={props.location} 
+                            something={props.something} />
+                        <CreatePost 
+                            username={props.username} 
+                            nickname={props.nickname} />
                     </Paper>
                 </Grid>
            
-                <Grid item md="5" xs="12" style={divStyle.posts}>
-                    <Paper>
-                        <PreviousPost username={props.username} nickname={props.nickname} />
+                <Grid item md="6" xs="12">
+                    <Paper style={profileHomeStyle.posts}>
+                        <PreviousPost 
+                            username={props.username} 
+                            nickname={props.nickname} />
                     </Paper>
                 </Grid>
             </Grid>

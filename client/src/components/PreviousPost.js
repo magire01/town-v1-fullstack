@@ -25,7 +25,7 @@ const PreviousPost = (props) => {
 
     const postStyle = {
         entire: {
-            marginTop: 20,
+            marginTop: 5,
             marginLeft: 20,
             paddingLeft: 10,
             paddingTop: 10
@@ -37,7 +37,6 @@ const PreviousPost = (props) => {
 
     return (
         <div>
-            <Container>
                 <Grid container style={postStyle.entire}>
                     <Grid item md="12" xs="12">
                         Previous Posts
@@ -51,7 +50,6 @@ const PreviousPost = (props) => {
                     </Grid>
                 ))}
                 </Grid>
-            </Container>
         </div>
     )
 

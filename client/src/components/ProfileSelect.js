@@ -12,6 +12,9 @@ const ProfileSelect = (props) => {
     const [selectProfile, setSelectProfile] = useState({
         username: props.name,
         nickname: null,
+        age: null,
+        location: null,
+        something: null,
         selected: false
     })
 
@@ -51,9 +54,9 @@ const ProfileSelect = (props) => {
             marginRight: "auto",
             marginLeft: "auto",
             marginBottom:10,
-            width: 200,
+            width: 400,
             height: "auto",
-            alignText: "center"
+            textAlign: "center"
         }
     }
 
@@ -71,12 +74,17 @@ const ProfileSelect = (props) => {
                 </Grid>
                 <div style={profileStyle.mainDisplay}>
                 <Grid item md="12">
-                    <p>Profiles for user, {showProfile.username}</p>
-
                     {showProfile.profileInfo.map((profile) => (
                         <Grid md="12">
                             
-                            <Card onClick={() => setSelectProfile({ ...selectProfile, nickname: profile.nickname, selected: true })} style={profileStyle.button}>
+                            <Card onClick={() => setSelectProfile({ 
+                                ...selectProfile, 
+                                nickname: profile.nickname,
+                                age: profile.age,
+                                location: profile.location,
+                                something: profile.something, 
+                                selected: true })} 
+                            style={profileStyle.button}>
                                 <Grid item md="12">
                                     <Button>
                                         NickName: {profile.nickname}
@@ -104,7 +112,7 @@ const ProfileSelect = (props) => {
 
     return (
         <div>
-            <ProfileHome username={selectProfile.username} nickname={selectProfile.nickname}/>
+            <ProfileHome username={selectProfile.username} nickname={selectProfile.nickname} age={selectProfile.age} location={selectProfile.location} something={selectProfile.something}/>
         </div>
     )
 }
