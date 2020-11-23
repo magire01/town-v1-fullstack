@@ -39,8 +39,8 @@ const Home = () => {
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: 20,
-            height: 100,
-            width: 800,
+            height: "auto",
+            width: "80%",
             backgroundColor: "#f5d131",
             color: "#9c2d17",
             fontSize: 30,
@@ -50,7 +50,9 @@ const Home = () => {
             display:"block",
             marginLeft: "auto",
             marginRight: "auto",
-            width: 1000
+            height: "auto",
+            width: "95%"
+            
         },
         loginForm: {
             textAlign: "center",
@@ -80,16 +82,16 @@ const Home = () => {
             return (
                 <div>
                     <Banner />
-                    <Button onClick={()=> setPageNav({ page: "SignUp" })} color="secondary" style={homeStyle.createAccount}>Create an account!</Button>
+                    <Button onClick={()=> setPageNav({ page: "SignUp" })} color="secondary" style={homeStyle.createAccount}>Create New Account</Button>
 
                     <Container>
                         <Paper elevation={1} style={homeStyle.loginBox}>
                             <Grid container justify="center" alignContent="center">
-                                <Grid item md="12">
+                                <Grid item md="12" xs="12">
                                     <Typography variant="h5" style={homeStyle.loginForm}>Log In</Typography>
                                 </Grid>
 
-                                <Grid item md="12">
+                                <Grid item md="12" xs="12">
                                     <form style={homeStyle.loginForm}>
                                         <Typography variant="subtitle1">Username</Typography>
                                         <input onChange={handleUsername}/>

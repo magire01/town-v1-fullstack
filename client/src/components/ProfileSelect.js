@@ -42,19 +42,19 @@ const ProfileSelect = (props) => {
 
     const profileStyle = {
         mainDisplay: {
-            marginBottom: 30,
+            marginBottom: 20,
             display: "block",
             marginRight: "auto",
             marginLeft: "auto",
             alignContent: "center",
-            width: 600
+            width: "80%"
         },
         button: {
             display: "block",
             marginRight: "auto",
             marginLeft: "auto",
             marginBottom:10,
-            width: 400,
+            width: "60%",
             height: "auto",
             textAlign: "center"
         }
@@ -63,15 +63,15 @@ const ProfileSelect = (props) => {
     if(!selectProfile.selected)
     return (
         <div>
-            <CreateProfile name={props.name}/>
+           
             <Grid container>
                 <Grid item md="12" style={profileStyle.mainDisplay}>
                     <Paper style={profileStyle.mainDisplay}>
-                        <p>Welcome, {showProfile.username}. Please create a profile or select an existing one. </p>
+                        <p>Welcome, {props.name}. Please create a profile or select an existing one. </p>
                     </Paper>
-
-                    
+                    <CreateProfile name={props.name}/>
                 </Grid>
+                 
                 <div style={profileStyle.mainDisplay}>
                 <Grid item md="12">
                     {showProfile.profileInfo.map((profile) => (
