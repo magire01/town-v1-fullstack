@@ -21,7 +21,7 @@ const CreatePost = (props) => {
 
     const submitPost = (evt) => {
         evt.preventDefault();
-        API.createPost({ username: props.username, nickname: props.nickname, postText: postState.textArea })
+        API.createPost({ username: props.username, nickname: props.nickname, postText: postState.textArea, town: props.town })
         .then(result => console.log(result))
     }
 
