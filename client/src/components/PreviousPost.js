@@ -31,7 +31,8 @@ const PreviousPost = (props) => {
             paddingTop: 10
         },
         individual: {
-            marginLeft: 10
+            marginLeft: 10,
+            paddingRight: 20
         }
     }
 

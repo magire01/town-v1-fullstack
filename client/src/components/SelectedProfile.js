@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
-
-import ProfileSelect from "../components/ProfileSelect";
-import CreateProfile from "../components/CreateProfile";
-import Greeting from "../components/Greeting";
-import CreatePost from "../components/CreatePost";
 
 const SelectedProfile = (props) => {
 
