@@ -18,4 +18,11 @@ router.get("/all", (req, res) => {
     .catch(err => console.log(err))
 })
 
+router.put("/join/:town/:user/:nick", (req, res) => {
+    const newMember = { username: req.params.user, nickname: req.params.nick }
+    db.Town.findOneAndUpdate({  name: req.params.town }, { $push: { members: newMember } })
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+})
+
 module.exports = router;

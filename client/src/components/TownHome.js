@@ -11,6 +11,9 @@ const TownHome = (props) => {
         API.putTownUser(props.username, props.nickname, props.name)
         .then(console.log("Successfully Joined Team"))
         .catch(err => console.log(err))
+        API.putTownGroup(props.name, props.username, props.nickname)
+        .then(console.log("Successfully Added Member to Team"))
+        .catch(err => console.log(err))
     }
 
     return (

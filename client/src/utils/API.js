@@ -37,5 +37,8 @@ export default {
   },
   putTownUser: async function(user, nick, town) {
     return axios.put(`/api/profile/join/${user}/${nick}/${town}`)
+  },
+  putTownGroup: function(town, user, nick) {
+    return axios.put(`/api/town/join/${town}/${user}/${nick}`)
   }
 };
