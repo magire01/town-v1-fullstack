@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 
 import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
+import API from "../utils/API";
 
 const TownHome = (props) => {
     
+    const joinTown = (evt) => {
+        evt.preventDefault();
+        API.putTownUser(props.username, props.nickname, props.name)
+        .then(console.log("Successfully Joined Team"))
+        .catch(err => console.log(err))
+    }
+
     return (
         <div>
             <Grid container>
@@ -22,6 +30,8 @@ const TownHome = (props) => {
                         ))}
                     </Paper>
                 </Grid>
+                
+                <Button onClick={(e) => joinTown(e)}>Join Town</Button>
             </Grid>
             
         </div>

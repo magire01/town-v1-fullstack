@@ -34,5 +34,8 @@ export default {
   },
   getTowns: function() {
     return axios.get("/api/town/all")
+  },
+  putTownUser: async function(user, nick, town) {
+    return axios.put(`/api/profile/join/${user}/${nick}/${town}`)
   }
 };

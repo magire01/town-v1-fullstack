@@ -6,7 +6,8 @@ const profileSchema = new Schema({
   nickname: { type: String, required: true },
   age: { type: Number, required: true },
   location: { type: String, required: true },
-  something: { type: String, required: true }
+  something: { type: String, required: true },
+  town: { type: String, required: false }
 });
 
 const Profile = mongoose.model("Profile", profileSchema);
