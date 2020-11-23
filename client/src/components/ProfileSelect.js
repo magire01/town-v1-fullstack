@@ -5,6 +5,7 @@ import { Container, Grid, Paper, Typography, Button, Card } from "@material-ui/c
 import API from "../utils/API";
 
 import ProfileHome from "../components/ProfileHome";
+import CreateProfile from "../components/CreateProfile";
 
 const ProfileSelect = (props) => {
 
@@ -59,6 +60,7 @@ const ProfileSelect = (props) => {
     if(!selectProfile.selected)
     return (
         <div>
+            <CreateProfile name={props.name}/>
             <Grid container>
                 <Grid item md="12" style={profileStyle.mainDisplay}>
                     <Paper style={profileStyle.mainDisplay}>

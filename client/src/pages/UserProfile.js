@@ -16,8 +16,7 @@ const UserProfile = (props) => {
 
     return (
         <div>
-            <CreateProfile name={showProfile.username} />
-            <ProfileSelect name={showProfile.username}/>
+            <ProfileSelect name={props.name}/>
         </div>
     )
 }
