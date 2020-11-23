@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { AppBar, Grid, Toolbar, Typography, Button } from "@material-ui/core";
 
 import Home from "../pages/Home";
-import UserHome from "../pages/UserHome";
 import UserProfile from "../pages/UserProfile";
+import News from "../pages/News";
 
 const HeaderAuth = (props) => {
 
@@ -69,7 +69,7 @@ const HeaderAuth = (props) => {
                         </Grid>
                     </Toolbar>
                 </AppBar>
-                News
+                <News />
             </div>
             )
         case "Logout":

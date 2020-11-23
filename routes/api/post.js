@@ -19,4 +19,9 @@ router.get("/:name1/:name2", (req, res) => {
     .catch(err => console.log(err))
 })
 
+router.get("/news", (req, res) => {
+    return db.Post.find()
+    .then(result => res.json(result))
+})
+
 module.exports = router;
