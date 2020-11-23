@@ -48,17 +48,31 @@ const SignUp = () => {
         console.log("username: ", dataSubmit.username);
     }
 
+    const signUpStyle = {
+        form: {
+            textAlign: "center",
+            color: "#9c2d17"
+        },
+        formBox: {
+            display:"block",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: 1000
+        },
+    }
+
     return (
         <div>
             <Container>
-                <Paper elevation={1}>
+                <Paper elevation={1} style={signUpStyle.formBox}>
                     <Grid container justify="center" alignContent="center">
-                        <Grid item md="12">
-                            <Typography variant="h5">Sign Up!</Typography>
-                        </Grid>
+                        {/* <Grid item md="12">
+                            <Typography variant="h5">Sign Up</Typography>
+                        </Grid> */}
 
                         <Grid item md="12">
-                            <form>
+                            <form style={signUpStyle.form}>
+                                <Typography variant="h5">Sign Up</Typography>
                                 <Typography variant="subtitle1">Name</Typography>
                                 <input onChange={handleUserChange} />
                                 <Typography variant="subtitle1">Email</Typography>

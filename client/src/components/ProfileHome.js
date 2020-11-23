@@ -9,47 +9,39 @@ import PreviousPost from "../components/PreviousPost";
 
 const ProfileHome = (props) => {
 
-    const [createPost, setCreatePost] = useState({
-        selected: false
-    })
+    const divStyle = {
+        profile: {
+            marginRight: 5
+        },
+        posts: {
+            marginLeft: 5
+        }
+    }
 
-    if(!createPost.selected)
     return (
         <div>
-            <Paper>
-                <Grid container>
-                    <Grid item md="12">
+           
+            <Grid container> 
+            
+                <Grid item md="5" xs="12" style={divStyle.profile}>
+                    <Paper>
+                        <h3>User:</h3>
                         <p>{props.username}</p>
+                    
+                        <h3>Profile Name</h3>
                         <p>{props.nickname}</p>
-                    </Grid>
+                        
+                        <CreatePost username={props.username} nickname={props.nickname} />
+                    </Paper>
                 </Grid>
-            </Paper>
-
-            <Button onClick={() => setCreatePost({ selected: true })}>
-                Create Post
-            </Button>
-
-            <PreviousPost username={props.username} nickname={props.nickname} />
-        </div>
-    )
-    return (
-        <div>
-            <Paper>
-                <Grid container>
-                    <Grid item md="12">
-                        <p>{props.username}</p>
-                        <p>{props.nickname}</p>
-                    </Grid>
+           
+                <Grid item md="5" xs="12" style={divStyle.posts}>
+                    <Paper>
+                        <PreviousPost username={props.username} nickname={props.nickname} />
+                    </Paper>
                 </Grid>
-            </Paper>
-
-            <Button onClick={() => setCreatePost({ selected: true })}>
-                Create Post
-            </Button>
-
-            <CreatePost username={props.username} nickname={props.nickname} />
-
-            <PreviousPost username={props.username} nickname={props.nickname} />
+            </Grid>
+            
         </div>
     )
 }

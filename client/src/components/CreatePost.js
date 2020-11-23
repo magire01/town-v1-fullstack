@@ -25,12 +25,29 @@ const CreatePost = (props) => {
         .then(result => console.log(result))
     }
 
+    const postStyle = {
+        textArea: {
+            backgroundColor: "lightblue",
+            height: 150,
+            width: 400
+        }
+    }
+
     return (
         <div>
-            <form>
-                <textarea onChange={handleInputChange}/>
-                <Button onClick={(evt) => submitPost(evt)}>Post</Button>
-            </form>
+            <Grid container>
+                <Grid item md="12">
+                    <p>Create Post</p>
+                </Grid>
+                <form>
+                    <Grid item md="12">
+                        <textarea style={postStyle.textArea} onChange={handleInputChange}/>
+                    </Grid>
+                    <Grid item md="12">
+                        <Button onClick={(evt) => submitPost(evt)} color="primary" variant="outlined">Post</Button>
+                    </Grid>
+                </form>
+            </Grid>
         </div>
     )
 }
