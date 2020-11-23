@@ -78,6 +78,8 @@ const TownSelect = (props) => {
                 createdByNick={selectTown.createdByNick}
                 description={selectTown.description}
                 members={selectTown.members}
+                username={props.username}
+                nickname={props.nickname}
             />
         </div>
     )

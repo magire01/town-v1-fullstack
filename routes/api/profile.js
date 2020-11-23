@@ -6,7 +6,8 @@ router.post("/createProfile", (req, res) => {
         nickname: req.body.nickname, 
         age: req.body.age,
         location: req.body.location,
-        something: req.body.something })
+        something: req.body.something,
+        town: null })
         .then(console.log("Successfully Created Profile"))
         .catch(err => console.log(err))
     
@@ -22,6 +23,15 @@ router.get("/", (req, res) => {
 router.get("/:name", (req, res) => {
     return db.Profile.find({ username: req.params.name })
     .then(result => res.json(result))
+    .catch(err => console.log(err))
+})
+
+router.put("/join/:user/:nick/:town", async (req, res) => {
+    await db.Profile.findOneAndUpdate({ username: req.params.user, nickname: req.params.nick }, { town: req.params.town} )
+    .then(result => {
+        console.log(result);
+        res.json(result);
+    })
     .catch(err => console.log(err))
 })
 

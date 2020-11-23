@@ -21,7 +21,7 @@ app.use(cors({ origin : [ "http://localhost:3001/"]}));
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1/townapp",
-  { useNewUrlParser: true, useUnifiedTopology: true },
+  { useNewUrlParser: true, useFindAndModify: false },
   () => console.log('connected to db')
 );
 
