@@ -57,7 +57,7 @@ const SignUp = () => {
             display:"block",
             marginLeft: "auto",
             marginRight: "auto",
-            width: 1000
+            width: "95%"
         },
     }
 

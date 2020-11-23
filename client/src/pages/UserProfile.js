@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
-import API from "../utils/API";
-
 import ProfileSelect from "../components/ProfileSelect";
 import CreateProfile from "../components/CreateProfile";
+import Greeting from "../components/Greeting";
 
 const UserProfile = (props) => {
 
@@ -16,8 +15,8 @@ const UserProfile = (props) => {
 
     return (
         <div>
-            <CreateProfile name={showProfile.username} />
-            <ProfileSelect name={showProfile.username}/>
+            <Greeting username={props.name}/>
+            <ProfileSelect name={props.name}/>
         </div>
     )
 }

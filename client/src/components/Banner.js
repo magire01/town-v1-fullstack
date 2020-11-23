@@ -10,7 +10,7 @@ const Banner = () => {
     const bannerStyle = {
         background: {
             backgroundColor: "#9c2d17",
-            width: 800,
+            width: "95%",
             height: 125,
             display: "block",
             marginRight: "auto",

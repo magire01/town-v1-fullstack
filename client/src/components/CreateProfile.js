@@ -73,8 +73,8 @@ const CreateProfile = (props) => {
         display: "block",
         marginRight: "auto",
         marginLeft: "auto",
-        alignContent: "center",
-        width: 600
+        textAlign: "center",
+        width: "80%"
     }
 
     if (!profileState.newProfile)
@@ -112,8 +112,6 @@ const CreateProfile = (props) => {
                     </Grid>
                 </Grid>
             </Paper>
-            
-            <ProfileSelect name={newProfile.username}/>
         </Container>
     )
 }
