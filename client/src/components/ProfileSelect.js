@@ -15,6 +15,7 @@ const ProfileSelect = (props) => {
         age: null,
         location: null,
         something: null,
+        town: null,
         selected: false
     })
 
@@ -82,7 +83,8 @@ const ProfileSelect = (props) => {
                                 nickname: profile.nickname,
                                 age: profile.age,
                                 location: profile.location,
-                                something: profile.something, 
+                                something: profile.something,
+                                town: profile.town,
                                 selected: true })} 
                             style={profileStyle.button}>
                                 <Grid item md="12">
@@ -112,7 +114,7 @@ const ProfileSelect = (props) => {
 
     return (
         <div>
-            <ProfileHome username={selectProfile.username} nickname={selectProfile.nickname} age={selectProfile.age} location={selectProfile.location} something={selectProfile.something}/>
+            <ProfileHome username={selectProfile.username} nickname={selectProfile.nickname} age={selectProfile.age} location={selectProfile.location} something={selectProfile.something} town={selectProfile.town}/>
         </div>
     )
 }

@@ -39,7 +39,8 @@ const ProfileHome = (props) => {
                             nickname={props.nickname} 
                             age={props.age} 
                             location={props.location} 
-                            something={props.something} />
+                            something={props.something}
+                            town={props.town} />
                         <CreatePost 
                             username={props.username} 
                             nickname={props.nickname} />
