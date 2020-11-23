@@ -4,6 +4,8 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import API from "../utils/API";
 
+import TownSelect from "../components/TownSelect";
+
 const Towns = () => {
 
     // const [showTowns, setShowNews] = useState({
@@ -21,6 +23,7 @@ const Towns = () => {
     return (
         <div>
             Towns
+            <TownSelect />
         </div>
     )
 }

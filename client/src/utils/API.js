@@ -31,5 +31,8 @@ export default {
   },
   createTown: function(townData) {
     return axios.post("/api/town/createTown", townData)
+  },
+  getTowns: function() {
+    return axios.get("/api/town/all")
   }
 };

@@ -12,5 +12,10 @@ router.post("/createTown", (req, res) => {
     .catch(err => console.log(err))
 })
 
+router.get("/all", (req, res) => {
+    db.Town.find()
+    .then(result => res.json(result))
+    .catch(err => console.log(err))
+})
 
 module.exports = router;
