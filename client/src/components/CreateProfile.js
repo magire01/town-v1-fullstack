@@ -112,8 +112,6 @@ const CreateProfile = (props) => {
                     </Grid>
                 </Grid>
             </Paper>
-            
-            <ProfileSelect name={newProfile.username}/>
         </Container>
     )
 }
