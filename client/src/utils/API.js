@@ -25,5 +25,8 @@ export default {
   },
   showPrevPost: function(username, nickname) {
     return axios.get(`/api/post/${username}/${nickname}`)
+  },
+  getNews: function() {
+    return axios.get("/api/post/news")
   }
 };
