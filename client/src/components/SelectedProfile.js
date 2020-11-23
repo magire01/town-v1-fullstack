@@ -16,6 +16,10 @@ const SelectedProfile = (props) => {
         API.userLeaveTown(props.username, props.nickname)
         .then(result => console.log(result.data))
         .catch(err => console.log(err))
+
+        API.groupLeaveTown(props.town, props.username, props.nickname)
+        .then(result => console.log("groupLeave", result.data))
+        .catch(err => console.log(err))
     }
 
     if(isTown.name == null)
