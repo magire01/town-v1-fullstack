@@ -13,10 +13,7 @@ router.post("/createPost", (req, res) => {
 
 router.get("/:name1/:name2", (req, res) => {
     return db.Post.find({ username: req.params.name1, nickname: req.params.name2  })
-    .then((result) => {
-        console.log(result);
-        res.json(result);
-    })
+    .then(result => res.json(result))
     .catch(err => console.log(err))
 })
 

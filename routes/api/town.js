@@ -27,14 +27,14 @@ router.get("/:town", (req, res) => {
 router.put("/join/:town/:user/:nick", (req, res) => {
     const newMember = { username: req.params.user, nickname: req.params.nick }
     db.Town.findOneAndUpdate({  name: req.params.town }, { $push: { members: newMember } })
-    .then(result => console.log(result))
+    .then(result => console.log("User Joined Town"))
     .catch(err => console.log(err))
 })
 
 router.put("/leave/:town/:user/:nick", (req, res) => {
     const leaveMember = { username: req.params.user, nickname: req.params.nick }
     db.Town.findOneAndUpdate({ members: [leaveMember] }, {$pull: { members: leaveMember } })
-    .then(result => console.log(result))
+    .then(result => console.log("User Left Town"))
     .catch(err => console.log(err))
 })
 
