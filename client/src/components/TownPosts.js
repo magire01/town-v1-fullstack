@@ -20,19 +20,28 @@ const TownPosts = (props) => {
     }, [])
 
     return (
-        <div>
-            TownPosts
-            {postState.data.map(post => (
-                <div>
-                    <p>
-                        {post.nickname}
-                    </p>
-                    <p>
-                        {post.postText}
-                    </p>
-                </div>
-            ))}
-        </div>
+        <Container>
+            <Grid container>
+                <Grid item md="12">
+                {postState.data.map(post => (
+                    <Paper style={{ marginTop: 5 }}>
+                        <Grid item md="12">
+                            <p>
+                            {post.nickname}
+                            </p> 
+                        </Grid>
+                        <Grid item md="12">
+                            <p>
+                            {post.postText}
+                            </p> 
+                        </Grid>
+                    </Paper>
+                ))} <Grid item md="12">
+
+                </Grid>
+                </Grid>
+            </Grid>
+        </Container>
     )
 
 }
