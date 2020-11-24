@@ -46,5 +46,11 @@ export default {
   },
   groupLeaveTown: async function(town, user, nick) {
     return axios.put(`/api/town/leave/${town}/${user}/${nick}`)
+  },
+  createPostTown: function(town, userData) {
+    return axios.put(`/api/town/createPost/${town}`, userData)
+  },
+  findTown: function(town) {
+    return axios.get(`/api/town/${town}`)
   }
 };

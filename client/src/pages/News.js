@@ -4,17 +4,47 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import API from "../utils/API";
 
-const News = () => {
+import TownPosts from "../components/TownPosts";
+
+const News = (props) => {
 
     const [showNews, setShowNews] = useState({
         newsArr: []
     })
 
+    const [showProfile, setShowProfile] = useState({
+        username: props.username,
+        profileInfo: []
+    })
+
+    // useEffect(() => {
+    //     API.findProfile(props.username)
+    //     .then(result => {
+    //         setShowProfile({ ...showProfile, profileInfo: result.data })
+    //         API.showPrevPost(props.username, props.nickname)
+    //         .then(post => setShowNews({ newsArr: post.data }))
+    //         .catch(err => console.log(err))
+    //     })
+    //     .catch(err => console.log(err))
+        
+    // }, [])
+
+    // useEffect(() => {
+    //     API.showPrevPost(props.username, props.nickname)
+    //     .then(post => setShowNews({ newsArr: post.data }))
+    //     .catch(err => console.log(err))
+        
+    // }, [])
+
     useEffect(() => {
-        API.getNews()
-        .then(result => setShowNews({ newsArr: result.data }))
+        API.findProfile(props.username)
+        .then(result => {
+            setShowProfile({ ...showProfile, profileInfo: result.data })
+        })
         .catch(err => console.log(err))
+        
     }, [])
+
 
     const newsStyle = {
         postDiv: {
@@ -38,6 +68,32 @@ const News = () => {
         }
     }
 
+    // return (
+    //     <div>
+    //         <Container>
+    //             <Grid container>
+    //                 <Grid item md="12" xs="12">
+    //                     <Typography variant="h3"> News</Typography>
+    //                 </Grid>
+                    
+    //                 <Grid item md="12" xs="12">
+    //                 {showNews.newsArr.reverse().map(post => (
+    //                     <Paper style={newsStyle.postDiv}>
+    //                         <Typography style={newsStyle.date}> {post.datePosted} </Typography>
+    //                         <Typography variant="h6" style={newsStyle.name}>
+    //                             {post.nickname}
+    //                         </Typography>
+    //                         <Typography style={newsStyle.text}>
+    //                             <p>{post.postText}</p>
+    //                         </Typography>
+    //                     </Paper>
+    //                 ))}
+    //                 </Grid>
+    //             </Grid>
+    //         </Container>
+    //     </div>
+    // )
+
     return (
         <div>
             <Container>
@@ -45,19 +101,15 @@ const News = () => {
                     <Grid item md="12" xs="12">
                         <Typography variant="h3"> News</Typography>
                     </Grid>
-                    
+
                     <Grid item md="12" xs="12">
-                    {showNews.newsArr.reverse().map(post => (
-                        <Paper style={newsStyle.postDiv}>
-                            <Typography style={newsStyle.date}> {post.datePosted} </Typography>
-                            <Typography variant="h6" style={newsStyle.name}>
-                                {post.nickname}
-                            </Typography>
-                            <Typography style={newsStyle.text}>
-                                <p>{post.postText}</p>
-                            </Typography>
-                        </Paper>
-                    ))}
+                        {showProfile.profileInfo.map(data => (
+                            <div>
+                                <p>{data.town}</p>
+                                <TownPosts town={data.town}/>
+                            </div>
+                            
+                        ))}
                     </Grid>
                 </Grid>
             </Container>

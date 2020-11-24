@@ -25,4 +25,5 @@ router.get("/news", (req, res) => {
     .then(result => res.json(result))
 })
 
+
 module.exports = router;

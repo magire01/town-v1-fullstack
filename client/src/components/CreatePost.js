@@ -23,6 +23,8 @@ const CreatePost = (props) => {
         evt.preventDefault();
         API.createPost({ username: props.username, nickname: props.nickname, postText: postState.textArea, town: props.town })
         .then(result => console.log(result))
+        API.createPostTown(props.town, { username: props.username, nickname: props.nickname, postText: postState.textArea })
+        .then(result => console.log(result))
     }
 
     const postStyle = {
