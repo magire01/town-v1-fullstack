@@ -70,7 +70,7 @@ const HeaderAuth = (props) => {
                         </Grid>
                     </Toolbar>
                 </AppBar>
-                <News />
+                <News username={props.name}/>
             </div>
             )
         case "Logout":

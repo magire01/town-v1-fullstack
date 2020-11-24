@@ -18,16 +18,28 @@ router.get("/all", (req, res) => {
     .catch(err => console.log(err))
 })
 
+router.get("/:town", (req, res) => {
+    db.Town.find({ name: req.params.town })
+    .then(result => res.json(result))
+    .catch(err => console.log(err))
+})
+
 router.put("/join/:town/:user/:nick", (req, res) => {
     const newMember = { username: req.params.user, nickname: req.params.nick }
     db.Town.findOneAndUpdate({  name: req.params.town }, { $push: { members: newMember } })
-    .then(result => console.log(result))
+    .then(result => console.log("User Joined Town"))
     .catch(err => console.log(err))
 })
 
 router.put("/leave/:town/:user/:nick", (req, res) => {
     const leaveMember = { username: req.params.user, nickname: req.params.nick }
     db.Town.findOneAndUpdate({ members: [leaveMember] }, {$pull: { members: leaveMember } })
+    .then(result => console.log("User Left Town"))
+    .catch(err => console.log(err))
+})
+
+router.put("/createPost/:town", (req, res) => {
+    db.Town.findOneAndUpdate({ name: req.params.town }, {$push: { posts: req.body }})
     .then(result => console.log(result))
     .catch(err => console.log(err))
 })

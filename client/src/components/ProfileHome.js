@@ -44,7 +44,8 @@ const ProfileHome = (props) => {
                             town={props.town} />
                         <CreatePost 
                             username={props.username} 
-                            nickname={props.nickname} />
+                            nickname={props.nickname}
+                            town={props.town} />
                     </Paper>
                 </Grid>
            

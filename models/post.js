@@ -6,7 +6,8 @@ const postSchema = new Schema({
   username: { type: String, required: true },
   nickname: { type: String, required: true },
   postText: { type: String, required: true },
-  datePosted: { type: String, required: true, default: moment().format('MM-DD-YYYY hh:mm a') }
+  datePosted: { type: String, required: true, default: moment().format('MM-DD-YYYY hh:mm a') },
+  town: { type: String, required: true }
 });
 
 const Post = mongoose.model("Post", postSchema);
