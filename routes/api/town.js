@@ -45,9 +45,8 @@ router.put("/createPost/:town", (req, res) => {
 })
 
 router.put("/removePost/:town/:id", (req, res) => {
-    // db.Town.findOneAndUpdate({ name: req.params.town }, { $pull: {posts: { postId: req.paramsid } } } )
     db.Town.findOneAndUpdate({ name: req.params.town}, {$pull: { posts: { postId: req.params.id } } })
-    .then(result => console.log("LeaveTownResult", result))
+    .then(result => console.log("Post removed from Town"))
     .catch(err => console.log(err))
 })
 
