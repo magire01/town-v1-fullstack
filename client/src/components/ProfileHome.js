@@ -12,6 +12,10 @@ import TownSelect from "../components/TownSelect";
 
 const ProfileHome = (props) => {
 
+    const [renderState, setRenderState] = useState({
+        state: 0
+    })
+
     const deleteSelectedProfile = (evt) => {
         evt.preventDefault();
         API.deleteProfile(props.username, props.nickname)
@@ -20,6 +24,12 @@ const ProfileHome = (props) => {
         API.groupLeaveTown(props.town, props.username, props.nickname)
         .then(result => console.log("User Removed from Town"))
         .catch(err => console.log(err))
+    }
+
+    const renderProfile = () => {
+        setRenderState({
+            state: renderState.state + 1
+        })
     }
 
     const profileHomeStyle = {
@@ -55,7 +65,8 @@ const ProfileHome = (props) => {
                         <CreatePost 
                             username={props.username} 
                             nickname={props.nickname}
-                            town={props.town} />
+                            town={props.town} 
+                            function={renderProfile}/>
                     </Paper>
                 </Grid>
            
@@ -63,7 +74,9 @@ const ProfileHome = (props) => {
                     <Paper style={profileHomeStyle.posts}>
                         <PreviousPost 
                             username={props.username} 
-                            nickname={props.nickname} />
+                            nickname={props.nickname}
+                            state={renderState.state}
+                             />
                     </Paper>
                 </Grid>
 
