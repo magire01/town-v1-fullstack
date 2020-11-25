@@ -22,5 +22,12 @@ router.get("/news", (req, res) => {
     .then(result => res.json(result))
 })
 
+router.delete("/delete/:id", (req, res) => {
+    return db.Post.findByIdAndDelete(req.params.id)
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+})
+
+
 
 module.exports = router;

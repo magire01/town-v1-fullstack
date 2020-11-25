@@ -55,5 +55,8 @@ export default {
   },
   deleteProfile: function(user, nick) {
     return axios.delete(`/api/profile/delete/${user}/${nick}`)
+  },
+  deletePost: function(id) {
+    return axios.delete(`/api/post/delete/${id}`)
   }
 };

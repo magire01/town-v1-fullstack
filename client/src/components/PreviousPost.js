@@ -4,6 +4,7 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import API from "../utils/API";
 
+import DeletePost from "../components/DeletePost";
 
 const PreviousPost = (props) => {
 
@@ -47,6 +48,7 @@ const PreviousPost = (props) => {
                     <Grid item md="12" xs="12" style={postStyle.individual}>
                         <p>
                             {data.postText}
+                            <DeletePost id={data._id} />
                         </p>
                     </Grid>
                 ))}
