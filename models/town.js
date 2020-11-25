@@ -15,7 +15,8 @@ const townSchema = new Schema({
     username: { type: String, required: true },
     nickname: { type: String, required: true },
     postText: { type: String, required: true },
-    datePosted: { type: String, required: true, default: moment().format('MM-DD-YYYY hh:mm a') }
+    datePosted: { type: String, required: true, default: moment().format('MM-DD-YYYY hh:mm a') },
+    postId: { type: String, required: true }
   }],
   dateCreated: { type: String, required: true, default: moment().format('MM-DD-YYYY hh:mm a') }
 });

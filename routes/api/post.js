@@ -6,7 +6,7 @@ router.post("/createPost", (req, res) => {
         nickname: req.body.nickname, 
         postText: req.body.postText,
         town: req.body.town })
-        .then(console.log("Successfully Created Post"))
+        .then(result => res.json(result))
         .catch(err => console.log(err))
     
 });
@@ -21,6 +21,13 @@ router.get("/news", (req, res) => {
     return db.Post.find()
     .then(result => res.json(result))
 })
+
+router.delete("/delete/:id", (req, res) => {
+    return db.Post.findByIdAndDelete(req.params.id)
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+})
+
 
 
 module.exports = router;

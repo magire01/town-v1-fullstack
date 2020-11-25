@@ -4,6 +4,7 @@ import { Container, Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import API from "../utils/API";
 
+import DeletePost from "../components/DeletePost";
 
 const PreviousPost = (props) => {
 
@@ -11,6 +12,10 @@ const PreviousPost = (props) => {
         username: props.username,
         nickname: props.nickname,
         postArr: []
+    })
+
+    const [identifyPost, setIdentifyPost] = useState({
+        postId: null
     })
 
     useEffect(() => {
@@ -21,7 +26,6 @@ const PreviousPost = (props) => {
             }))
             .catch(err => console.log(err))
     }, [])
-
 
     const postStyle = {
         entire: {
@@ -47,6 +51,7 @@ const PreviousPost = (props) => {
                     <Grid item md="12" xs="12" style={postStyle.individual}>
                         <p>
                             {data.postText}
+                            <DeletePost id={data._id} town={data.town} />
                         </p>
                     </Grid>
                 ))}

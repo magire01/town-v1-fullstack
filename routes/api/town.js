@@ -26,7 +26,7 @@ router.get("/:town", (req, res) => {
 
 router.put("/join/:town/:user/:nick", (req, res) => {
     const newMember = { username: req.params.user, nickname: req.params.nick }
-    db.Town.findOneAndUpdate({  name: req.params.town }, { $push: { members: newMember } })
+    db.Town.findOneAndUpdate({ name: req.params.town }, { $push: { members: newMember } })
     .then(result => console.log("User Joined Town"))
     .catch(err => console.log(err))
 })
@@ -40,7 +40,13 @@ router.put("/leave/:town/:user/:nick", (req, res) => {
 
 router.put("/createPost/:town", (req, res) => {
     db.Town.findOneAndUpdate({ name: req.params.town }, {$push: { posts: req.body }})
-    .then(result => console.log(result))
+    .then(result => console.log("Post added to Town"))
+    .catch(err => console.log(err))
+})
+
+router.put("/removePost/:town/:id", (req, res) => {
+    db.Town.findOneAndUpdate({ name: req.params.town}, {$pull: { posts: { postId: req.params.id } } })
+    .then(result => console.log("Post removed from Town"))
     .catch(err => console.log(err))
 })
 
