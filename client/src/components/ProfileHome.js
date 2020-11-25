@@ -17,6 +17,9 @@ const ProfileHome = (props) => {
         API.deleteProfile(props.username, props.nickname)
         .then(result => console.log("Profile Deleted"))
         .catch(err => console.log(err))
+        API.groupLeaveTown(props.town, props.username, props.nickname)
+        .then(result => console.log("User Removed from Town"))
+        .catch(err => console.log(err))
     }
 
     const profileHomeStyle = {

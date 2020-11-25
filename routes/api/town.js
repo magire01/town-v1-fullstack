@@ -33,7 +33,7 @@ router.put("/join/:town/:user/:nick", (req, res) => {
 
 router.put("/leave/:town/:user/:nick", (req, res) => {
     const leaveMember = { username: req.params.user, nickname: req.params.nick }
-    db.Town.findOneAndUpdate({ members: [leaveMember] }, {$pull: { members: leaveMember } })
+    db.Town.findOneAndUpdate({ name: req.params.town }, {$pull: { members: leaveMember } })
     .then(result => console.log("User Left Town"))
     .catch(err => console.log(err))
 })
