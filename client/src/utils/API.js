@@ -58,5 +58,8 @@ export default {
   },
   deletePost: function(id) {
     return axios.delete(`/api/post/delete/${id}`)
+  },
+  deletePostTown: function(town, id) {
+    return axios.put(`/api/town/removePost/${town}/${id}`)
   }
 };

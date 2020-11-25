@@ -6,7 +6,7 @@ router.post("/createPost", (req, res) => {
         nickname: req.body.nickname, 
         postText: req.body.postText,
         town: req.body.town })
-        .then(console.log("Successfully Created Post"))
+        .then(result => res.json(result))
         .catch(err => console.log(err))
     
 });

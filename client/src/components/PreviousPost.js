@@ -14,6 +14,10 @@ const PreviousPost = (props) => {
         postArr: []
     })
 
+    const [identifyPost, setIdentifyPost] = useState({
+        postId: null
+    })
+
     useEffect(() => {
         API.showPrevPost(showPosts.username, showPosts.nickname)
             .then(result => setShowPosts({
@@ -22,7 +26,6 @@ const PreviousPost = (props) => {
             }))
             .catch(err => console.log(err))
     }, [])
-
 
     const postStyle = {
         entire: {
@@ -48,7 +51,7 @@ const PreviousPost = (props) => {
                     <Grid item md="12" xs="12" style={postStyle.individual}>
                         <p>
                             {data.postText}
-                            <DeletePost id={data._id} />
+                            <DeletePost id={data._id} town={data.town} postId={data.postId} />
                         </p>
                     </Grid>
                 ))}

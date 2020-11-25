@@ -9,7 +9,8 @@ const CreatePost = (props) => {
 
     const [postState, setPostState] = useState({
         textArea: null,
-        postObj: []
+        postObj: [],
+        postId: null
     })
 
     const handleInputChange = (evt) => {
@@ -19,12 +20,23 @@ const CreatePost = (props) => {
         })
     }
 
+    // const submitPost = (evt) => {
+    //     evt.preventDefault();
+    //     API.createPost({ username: props.username, nickname: props.nickname, postText: postState.textArea, town: props.town })
+    //     .then(result => setPostState({ ...postState, postId: result.data._id }))
+    //     API.createPostTown(props.town, { username: props.username, nickname: props.nickname, postText: postState.textArea, postId: postState.postId })
+    //     .then(result => console.log(result))
+    // }
+
     const submitPost = (evt) => {
         evt.preventDefault();
         API.createPost({ username: props.username, nickname: props.nickname, postText: postState.textArea, town: props.town })
-        .then(result => console.log(result))
-        API.createPostTown(props.town, { username: props.username, nickname: props.nickname, postText: postState.textArea })
-        .then(result => console.log(result))
+        .then(result => {
+            console.log(result.data)
+            API.createPostTown(props.town, { username: props.username, nickname: props.nickname, postText: postState.textArea, postId: result.data._id })
+            .then(result => console.log(result.data))
+        })
+        
     }
 
     const postStyle = {
