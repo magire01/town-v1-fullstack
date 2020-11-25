@@ -9,6 +9,7 @@ const DeletePost = (props) => {
     const removePost = (evt) => {
         evt.preventDefault();
         API.deletePost(props.id)
+        API.deletePostTown(props.town, props.id)
     }
 
     return (

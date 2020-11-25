@@ -40,14 +40,14 @@ router.put("/leave/:town/:user/:nick", (req, res) => {
 
 router.put("/createPost/:town", (req, res) => {
     db.Town.findOneAndUpdate({ name: req.params.town }, {$push: { posts: req.body }})
-    .then(result => console.log(result))
+    .then(result => console.log("Post added to Town"))
     .catch(err => console.log(err))
 })
 
 router.put("/removePost/:town/:id", (req, res) => {
     // db.Town.findOneAndUpdate({ name: req.params.town }, { $pull: {posts: { postId: req.paramsid } } } )
-    db.Town.findOneAndUpdate({ name: req.params.town}, {$pull: {post: { postId: req.params.id } } })
-    .then(result => console.log(result))
+    db.Town.findOneAndUpdate({ name: req.params.town}, {$pull: { posts: { postId: req.params.id } } })
+    .then(result => console.log("LeaveTownResult", result))
     .catch(err => console.log(err))
 })
 
