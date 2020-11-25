@@ -52,5 +52,8 @@ export default {
   },
   findTown: function(town) {
     return axios.get(`/api/town/${town}`)
+  },
+  deleteProfile: function(user, nick) {
+    return axios.delete(`/api/profile/delete/${user}/${nick}`)
   }
 };

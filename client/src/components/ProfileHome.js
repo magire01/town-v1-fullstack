@@ -12,6 +12,16 @@ import TownSelect from "../components/TownSelect";
 
 const ProfileHome = (props) => {
 
+    const deleteSelectedProfile = (evt) => {
+        evt.preventDefault();
+        API.deleteProfile(props.username, props.nickname)
+        .then(result => console.log("Profile Deleted"))
+        .catch(err => console.log(err))
+        API.groupLeaveTown(props.town, props.username, props.nickname)
+        .then(result => console.log("User Removed from Town"))
+        .catch(err => console.log(err))
+    }
+
     const profileHomeStyle = {
         profile: {
             display: "block",
@@ -76,6 +86,7 @@ const ProfileHome = (props) => {
                             location={props.location}
                             something={props.something}/>
                     </Paper>
+                    <Button onClick={(e) => deleteSelectedProfile(e)}> Delete Profile </Button>
                 </Grid>
             </Grid>
             
