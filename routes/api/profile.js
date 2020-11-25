@@ -36,7 +36,13 @@ router.put("/join/:user/:nick/:town", async (req, res) => {
 
 router.put("/leave/:user/:nick", async (req, res) => {
     await db.Profile.findOneAndUpdate({ username: req.params.user, nickname: req.params.nick}, { town: null })
-    .then( result => res.json(result))
+    .then(result => res.json(result))
+    .catch(err => console.log(err))
+})
+
+router.delete("/delete/:user/:nick", (req, res) => {
+    return db.Profile.findOneAndDelete({ username: req.params.user, nickname: req.params.nick })
+    .then(result => console.log("Profile Deleted"))
     .catch(err => console.log(err))
 })
 
