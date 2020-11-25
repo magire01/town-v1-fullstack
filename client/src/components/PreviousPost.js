@@ -11,13 +11,22 @@ const PreviousPost = (props) => {
     const [showPosts, setShowPosts] = useState ({
         username: props.username,
         nickname: props.nickname,
-        postArr: []
+        postArr: [],
+        renderState: props.state
     })
-
-    const [identifyPost, setIdentifyPost] = useState({
-        postId: null
-    })
-
+    const updatePrevPost = () => {
+        API.showPrevPost(showPosts.username, showPosts.nickname)
+            .then(result => setShowPosts({
+                ...showPosts,
+                postArr: result.data
+            }))
+            .catch(err => console.log(err))
+        
+            setShowPosts({
+                ...showPosts,
+                renderState: showPosts.renderState + 1
+            })
+    }
     useEffect(() => {
         API.showPrevPost(showPosts.username, showPosts.nickname)
             .then(result => setShowPosts({
@@ -25,7 +34,23 @@ const PreviousPost = (props) => {
                 postArr: result.data
             }))
             .catch(err => console.log(err))
-    }, [])
+    }, [props.state])
+
+    useEffect(() => {
+        setShowPosts({
+            ...showPosts,
+            renderState: props.state
+        })
+        API.showPrevPost(showPosts.username, showPosts.nickname)
+            .then(result => setShowPosts({
+                ...showPosts,
+                postArr: result.data
+            }))
+            .catch(err => console.log(err))
+    }, [props.state])
+
+
+    
 
     const postStyle = {
         entire: {
@@ -51,7 +76,7 @@ const PreviousPost = (props) => {
                     <Grid item md="12" xs="12" style={postStyle.individual}>
                         <p>
                             {data.postText}
-                            <DeletePost id={data._id} town={data.town} />
+                            <DeletePost id={data._id} town={data.town} function={updatePrevPost} state={showPosts.render}/>
                         </p>
                     </Grid>
                 ))}

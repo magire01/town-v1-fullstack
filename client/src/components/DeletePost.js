@@ -6,14 +6,14 @@ import API from "../utils/API";
 
 const DeletePost = (props) => {
 
-    const removePost = (evt) => {
-        evt.preventDefault();
+    const removePost = () => {
         API.deletePost(props.id)
         API.deletePostTown(props.town, props.id)
+        props.function();
     }
 
     return (
-        <Button onClick={(e) => removePost(e)}>Delete</Button>
+        <Button onClick={() => removePost()}>Delete</Button>
     )
 }
 

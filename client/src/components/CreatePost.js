@@ -36,7 +36,7 @@ const CreatePost = (props) => {
             API.createPostTown(props.town, { username: props.username, nickname: props.nickname, postText: postState.textArea, postId: result.data._id })
             .then(result => console.log(result.data))
         })
-        
+        props.function();
     }
 
     const postStyle = {
