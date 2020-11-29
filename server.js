@@ -21,7 +21,7 @@ app.use(routes);
 app.use(cors({ origin : [ "http://localhost:3001/"]}));
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1/townapp",
+mongoose.connect(`mongodb+srv://mg:${process.env.DB_PW}@town-mg.gqyn8.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`|| "mongodb://127.0.0.1/townapp",
   { useNewUrlParser: true, useFindAndModify: false },
   () => console.log('connected to db')
 );
